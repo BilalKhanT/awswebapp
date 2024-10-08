@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html', 'login.html'));
+    res.send('Hello, this is the root route!');
 });
 
 app.get('/signup', (req, res) => {
