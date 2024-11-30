@@ -16,10 +16,10 @@ async function testSignup() {
         const signupButton = await driver.findElement(By.css('button[type="submit"]'));
         await signupButton.click();
 
-        await driver.wait(until.urlIs('http://13.60.34.47:3000/login'), 5000);
+        await driver.wait(until.urlIs('http://51.20.51.84:3000/login'), 5000);
 
         const currentUrl = await driver.getCurrentUrl();
-        assert.strictEqual(currentUrl, 'http://13.60.34.47:3000/login');
+        assert.strictEqual(currentUrl, 'http://51.20.51.84:3000/login');
         console.log('Signup test passed!');
     } catch (error) {
         console.error('Signup test failed:', error);
@@ -28,7 +28,7 @@ async function testSignup() {
 
 async function testLogin() {
     try {
-        await driver.get('http://13.60.34.47:3000/login');
+        await driver.get('http://51.20.51.84:3000/login');
 
         const usernameField = await driver.findElement(By.name('username'));
         const passwordField = await driver.findElement(By.name('password'));
