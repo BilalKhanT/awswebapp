@@ -1,10 +1,15 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const path = require('path');
-const User = require('./models/user.js');
+import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';  
+import path from 'path';  
+import { fileURLToPath } from 'url';  // Import the fileURLToPath function
+import User from './models/user.js';
 
 const app = express();
+
+// Get the current directory name using fileURLToPath and import.meta.url
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 mongoose.connect('mongodb+srv://BilalKhan:meBilalme@cluster0.8fygd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
@@ -22,7 +27,6 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html', 'login.html'));
-    res.send('Hello, this is the root route!');
 });
 
 app.get('/signup', (req, res) => {
